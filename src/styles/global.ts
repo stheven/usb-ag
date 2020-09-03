@@ -4,12 +4,13 @@ export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     outline: none;
   }
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -29,14 +30,5 @@ export default createGlobalStyle`
     flex-direction: column;
     flex: 1;
     min-height: 100vh;
-  }
-
-  .row {
-    display: flex;
-    align-items: center;
-  }
-
-  .row > div {
-    flex: 1;
   }
 `

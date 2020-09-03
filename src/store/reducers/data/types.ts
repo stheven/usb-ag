@@ -2,6 +2,7 @@ export enum DataTypes {
   LOADING = '@data/loading',
   SUCCESS = '@data/success',
   FAILURE = '@data/failure',
+  FILTER_DATA = '@data/filter_data',
 }
 
 export interface ItemData {
