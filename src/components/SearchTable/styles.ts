@@ -11,7 +11,7 @@ export const Container = styled.div`
   position: relative;
   width: calc(100% - 100px);
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1025px;
   
   @media screen and (max-width: 767px) {
     width: calc(100% - 20px);

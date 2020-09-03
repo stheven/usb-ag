@@ -1,3 +1,5 @@
+import { SortDirectionType } from "react-virtualized";
+
 export enum DataTypes {
   LOADING = '@data/loading',
   SUCCESS = '@data/success',
@@ -12,6 +14,11 @@ export interface ItemData {
   type: string
   industry: string
   origin: string
+}
+
+export interface Sort {
+  sortBy: string
+  sortDirection: SortDirectionType
 }
 
 export interface DataState {

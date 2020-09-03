@@ -6,8 +6,12 @@ import Filter from './Filter';
 import { ApplicationState } from '../../store'
 import { useSelector, useDispatch } from 'react-redux';
 import { dataLoading, dataFilter } from '../../store/reducers/data/actions'
+import { SortDirectionType, SortDirection } from 'react-virtualized';
+import { Sort } from '../../store/reducers/data/types';
 
 const SearchTable: React.FC = () => {
+  const [sortBy, setSortBy] = useState('')
+  const [sortDirection, setSortDirection] = useState<SortDirectionType>(SortDirection.ASC)
   const data = useSelector((state: ApplicationState) => state.data)
   const dispatch = useDispatch()
 
@@ -17,8 +21,22 @@ const SearchTable: React.FC = () => {
 
   const handleFilter = useCallback((value?: string) => {
     if (value !== undefined) {
-      dispatch(dataFilter(value))
+      dispatch(dataFilter(value, {
+        sortBy,
+        sortDirection
+      }))
     }
+  }, [dispatch, sortBy, sortDirection])
+
+  const handleSort = useCallback(({ sortBy, sortDirection }: Sort) => {
+    dispatch(dataFilter(undefined, {
+      sortBy,
+      sortDirection
+    }))
+
+    setSortBy(sortBy)
+    setSortDirection(sortDirection)
+
   }, [dispatch])
 
   const [responsive, setResponse] = useState(false)
@@ -37,7 +55,13 @@ const SearchTable: React.FC = () => {
 
     {data.loading && <>Carregando</>}
 
-    {!!data.data.length && <Table data={data.data} fixed={!responsive} />}
+    {!!data.data.length && <Table
+      data={data.data}
+      fixed={!responsive}
+      handleSort={handleSort}
+      sortBy={sortBy}
+      sortDirection={sortDirection}
+    />}
 
     {(!data.data.length && !data.loading) && <>Não há dados para exibir</>}
   </Container>
