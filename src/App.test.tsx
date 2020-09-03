@@ -1,9 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('filtro', () => {
+  test('Exibir mensagem caso não haja itens na tabela', async () => {
+    const { getByTestId } = render(<App />);
+    const input = getByTestId('frm-filter-input');
+    fireEvent.input(input, {
+      target: {
+        value: 'teste'
+      }
+    })
+    const message = getByTestId('empty-message')
+    expect(message).toBeInTheDocument();
+  });
+})
+

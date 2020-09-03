@@ -18,6 +18,12 @@ cd <caminho_da_pasta>
 
 ---
 
+Obs.: Para executar o projeto é necessário possuir os seguintes softwares instalados:
+- yarn ou npm
+- node
+
+---
+
 Instalação das dependencias
 ```bash
 yarn install # recomendável

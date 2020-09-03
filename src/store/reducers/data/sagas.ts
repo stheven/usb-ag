@@ -18,7 +18,6 @@ export function* load(action: any) {
 
     if (sort) {
       const { sortBy, sortDirection } = sort
-      console.log(sort)
       const tempList = _sortBy(response, (item: ItemData) => item[sortBy as keyof ItemData]);
       response = sortDirection === SortDirection.DESC ? tempList.reverse() : tempList
     }

@@ -63,7 +63,7 @@ const SearchTable: React.FC = () => {
       sortDirection={sortDirection}
     />}
 
-    {(!data.data.length && !data.loading) && <>Não há dados para exibir</>}
+    {(!data.data.length && !data.loading) && <span data-testid="empty-message">Não há dados para exibir</span>}
   </Container>
 }
 

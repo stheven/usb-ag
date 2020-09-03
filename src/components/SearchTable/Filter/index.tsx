@@ -14,11 +14,9 @@ const Filter: React.FC<Props> = ({ handleFilter }) => {
     handleFilter(ref.current?.value)
   }, [handleFilter])
 
-  return <Container>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="search">Filtre por <strong>product</strong> ou <strong>origin</strong></label>
-      <input id="search" ref={ref} type="text" onInput={(e) => handleFilter(e.currentTarget.value)} autoComplete="off" placeholder="Digite para filtrar" />
-    </form>
+  return <Container onSubmit={handleSubmit} data-testid="frm-filter">
+    <label htmlFor="search">Filtre por <strong>product</strong> ou <strong>origin</strong></label>
+    <input id="search" ref={ref} type="text" data-testid="frm-filter-input" onInput={(e) => handleFilter(e.currentTarget.value)} autoComplete="off" placeholder="Digite para filtrar" />
   </Container>
 }
 
