@@ -49,3 +49,12 @@ yarn build
 # ou 
 npm run build
 ```
+
+---
+
+Executar os testes
+```bash
+yarn test
+# ou 
+npm run test
+```
